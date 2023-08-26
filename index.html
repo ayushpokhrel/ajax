@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <span class="fa fa-spinner fa-spin"></span>
+   <button id="btn" onclick="fetchData()">Fetch</button>
+
+    <script>
+  
+      const fetchData=()=>{
+        let xhr=new XMLHttpRequest();
+        //open
+
+        // xhr.open('GET','https://jsonplaceholder.typicode.com/todos/1',true)
+        xhr.open('GET','text.txt',true)
+
+
+
+        //onporgress (this is optional)
+        xhr.onprogress=function(){
+            console.log('fetching on progress')
+        }
+
+        //onload
+        xhr.onload=function(){
+            if(this.status==200){
+            console.log(this.responseText)
+
+            }
+            else { console.error('error occured')}
+        }
+
+        //send
+        xhr.send();
+
+        
+        // console.log('we are done')
+      }
+           
+
+    </script>
+</body>
+</html>
